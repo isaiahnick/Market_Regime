@@ -1,0 +1,85 @@
+﻿category,proxy,name,data_type,transformation
+Commodities,BCOM_Index,Bloomberg Commodity Index,BBG,log_returns
+Commodities,SPGSCI_Index,S&P GSCI Index,BBG,log_returns
+Commodities,CL1_Comdty,WTI Crude Oil Front-Month,BBG,log_returns
+Commodities,GC1_Comdty,Gold Front-Month Futures,BBG,log_returns
+Commodities,HG1_Comdty,Copper Front-Month,BBG,log_returns
+Commodities,CRY_Index,Refinitiv/CoreCommodity CRB Index,BBG,log_returns
+Commodities,C1_Comdty,Corn Front-Month Futures,BBG,log_returns
+Commodities,W1_Comdty,Wheat Front-Month Futures,BBG,log_returns
+Credit,BAA,Moody's BAA Corporate Yield,FRED,first_differences
+Credit,AAA,Moody's AAA Corporate Yield,FRED,first_differences
+Credit,BAMLC0A0CM,ICE BofA US Corp IG OAS,FRED,first_differences
+Credit,BAMLH0A0HYM2,ICE BofA US High Yield OAS,FRED,first_differences
+Credit,CDXIG_Index,CDX Investment Grade Spread,BBG,first_differences
+Credit,CDXHY_Index,CDX High Yield Spread,BBG,first_differences
+Emerging Markets,MXEF_Index,MSCI Emerging Markets Index,BBG,log_returns
+Emerging Markets,EEM_US,iShares MSCI EM ETF,BBG,log_returns
+Emerging Markets,MXEFLC_Index,MSCI EM Local Currency Index,BBG,log_returns
+Emerging Markets,JPEMBD_Index,JPM EMBI Global Sovereign Spread,BBG,first_differences
+Emerging Markets,BDIY_Index,Baltic Dry Index,BBG,log_returns
+Emerging Markets,JPEIFXGL,JP Morgan Emerging Market FX Index,BBG,log_returns
+Equity,MXWO_Index,MSCI World (Net) Index,BBG,log_returns
+Equity,ACWI_US,MSCI ACWI ETF,BBG,log_returns
+Equity,MXWOU_Index,MSCI World (USD Price),BBG,log_returns
+Equity,SXXP_Index,STOXX Europe 600 Index,BBG,log_returns
+Equity,NKY_Index,Nikkei 225 Index,BBG,log_returns
+Equity Short Volatility,SPX_RealizedVol,Realized Volatility of S&P 500 (constructed from SPX Index returns),BBG,log_returns
+Equity Short Volatility,VIX_Index,CBOE S&P 500 Volatility Index,BBG,log_returns
+Equity Short Volatility,VVIX_Index,CBOE VIX of VIX,BBG,log_returns
+Equity Short Volatility,SKEW_Index,CBOE SKEW Index,BBG,log_returns
+Fixed Income Carry,T10Y3M,10-Year Treasury Constant Maturity Minus 3-Month Treasury Bill,FRED,first_differences
+Fixed Income Carry,T10Y2Y,10Y-2Y Treasury Spread,FRED,first_differences
+Fixed Income Carry,DGS30_minus_DGS5,30Y-5Y Treasury Spread,FRED,first_differences
+Fixed Income Carry,THREEFYTP10,Term Premium on a 10-Year Zero Coupon Bond,FRED,first_differences
+Fixed Income Carry,TB3MS,3-Month Treasury Bill Secondary Market Rate,FRED,first_differences
+Foreign Currency,DXY_Curncy,U.S. Dollar Index (DXY),BBG,log_returns
+Foreign Currency,DTWEXBGS,Trade-Weighted Broad Dollar Index,FRED,log_returns
+Foreign Currency,JPMB_Index,JPM Broad USD Index,BBG,log_returns
+Foreign Currency,EURUSD_Curncy,Euro / US Dollar,BBG,log_returns
+Foreign Currency,USDJPY_Curncy,US Dollar / Japanese Yen,BBG,log_returns
+Foreign Currency,JPEIFXGL,JP Morgan Emerging Market FX Index,BBG,log_returns
+Foreign Exchange Carry,FXCARRSP_Index,Bloomberg FX Carry Index (Risk-Adjusted),BBG,log_returns
+Foreign Exchange Carry,FXCARRG10_Index,Bloomberg G10 FX Carry Index,BBG,log_returns
+Foreign Exchange Carry,JPM_G10Carry,JPM G10 FX Carry TR Index,BBG,log_returns
+Foreign Exchange Carry,JPM_ELMI_Plus,JPM ELMI+ (EM FX/MM Carry) Index,BBG,log_returns
+Interest Rates,DGS10,U.S. 10-Year Treasury Yield,FRED,first_differences
+Interest Rates,DGS2,2-Year Treasury Yield,FRED,first_differences
+Interest Rates,DGS30,30-Year Treasury Yield,FRED,first_differences
+Interest Rates,FEDFUNDS,Effective Federal Funds Rate,FRED,first_differences
+Interest Rates,MOVE_Index,ICE BofA MOVE Index,BBG,first_differences
+Local Equity,SPX_Index,S&P 500 Index (Price),BBG,log_returns
+Local Equity,SPXT_Index,S&P 500 Total Return Index,BBG,log_returns
+Local Equity,NDX_Index,Nasdaq-100 Index,BBG,log_returns
+Local Equity,RTY_Index,Russell 2000 Index,BBG,log_returns
+Local Equity,RSP_US,S&P 500 Equal-Weight ETF,BBG,log_returns
+Local Inflation,CPIAUCSL,Consumer Price Index for All Urban Consumers: All Items,FRED,log differences
+Local Inflation,CPILFESL,CPI Core (Ex-Food & Energy),FRED,log differences
+Local Inflation,PCEPI,PCE Price Index,FRED,log differences
+Local Inflation,T10YIE,10-Year Breakeven Inflation,FRED,first differences
+Local Inflation,T5YIE,5-Year Breakeven Inflation,FRED,first differences
+Low Risk,SP5LVI_Index,S&P 500 Low Volatility Index,BBG,log_returns
+Low Risk,MXWO000M_Index,MSCI World Minimum Volatility Index,BBG,log_returns
+Low Risk,MXEF000M_Index,MSCI Emerging Markets Minimum Volatility Index,BBG,log_returns
+Momentum,FF_UMD,Fama-French Momentum Factor (Up Minus Down),FRENCH,use_directly
+Momentum,MSCI_World_Momentum,MSCI World Momentum Index,BBG,log_returns
+Momentum,MXUS000M_Index,MSCI USA Momentum Index,BBG,log_returns
+Momentum,MXEF000MOM_Index,MSCI Emerging Markets Momentum Index,BBG,log_returns
+Quality,FF_RMW,Fama-French Quality/Profitability Factor (Robust Minus Weak),FRENCH,use_directly
+Quality,MSCI_World_Quality,MSCI World Quality Index,BBG,log_returns
+Quality,MXUS000Q_Index,MSCI USA Quality Index,BBG,log_returns
+Quality,MXEF000Q_Index,MSCI Emerging Markets Quality Index,BBG,log_returns
+Small Cap,FF_SMB,Fama-French Size Factor (Small Minus Big),FRENCH,use_directly
+Small Cap,RTY_Index,Russell 2000 Index,BBG,log_returns
+Small Cap,MXWOS_Index,MSCI World Small Cap Index,BBG,log_returns
+Small Cap,MXEFSC_Index,MSCI Emerging Markets Small Cap Index,BBG,log_returns
+Trend Following,NEIXCTAT_Index,SG Trend Index (Societe Generale CTA Trend-Following Index),BBG,log_returns
+Trend Following,NEIXBTOP_Index,SG CTA/BTOP50 Index,BBG,log_returns
+Trend Following,BarclayCTA_Index,BarclayHedge CTA Index,BBG,log_returns
+Value,FF_HML,Fama-French Value Factor (High Minus Low),FRENCH,use_directly
+Value,MSCI_World_Value,MSCI World Value Index,BBG,log_returns
+Value,MXUS000V_Index,MSCI USA Value Index,BBG,log_returns
+Value,MXEF000V_Index,MSCI Emerging Markets Value Index,BBG,log_returns
+Growth,MSCI_World_Growth,MSCI World Growth Index,BBG,log_returns
+Growth,MXUS000G_Index,MSCI USA Growth Index,BBG,log_returns
+Growth,MXEF000G_Index,MSCI Emerging Markets Growth Index,BBG,log_returns
