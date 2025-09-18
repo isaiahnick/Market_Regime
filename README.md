@@ -74,7 +74,9 @@ This project uses:
 ├── pca.py                  # Performs PCA analysis on factor groups
 ├── README.md               # Project documentation
 ├── requirements.txt        # Python dependencies
-└── seed_instruments.py     # Seeds instrument metadata into database
+├── seed_instruments.py     # Seeds instrument metadata into 
+└── visualizations.py       # Produces summary visualizations
+database
 ```
 
 ---
@@ -150,6 +152,15 @@ This fits GMM across different numbers of clusters and outputs:
 - Regime probabilities and assignments
 - Model selection metrics (AIC, BIC, Silhouette)
 - Visualization plots in the `gmm_plots/` folder
+
+### Step 8: Generate Visualizations
+```bash
+python visualizations.py
+```
+This provides various visualizations of our regime analysis, such as:
+- Regime evolution over time
+- Mean returns and volatility per factor over each regime
+- Model selection metrics
 
 ---
 
