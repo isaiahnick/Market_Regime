@@ -117,14 +117,6 @@ python gmm.py
 ![Regime Evolution](gmm_plots/regime_timeseries.png)
 ![Regime Summary Statistics](gmm_plots/regime_statistics.png)
 
-
-Example:
-```markdown
-![Regime Probability Over Time](results/regime_probs.jpg)
-![Cluster Factor Means](results/means.jpg)
-![Cluster Factor Volatility](results/vols.jpg)
-```
-
 ---
 
 ## References
