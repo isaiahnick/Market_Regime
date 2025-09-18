@@ -156,7 +156,7 @@ This fits GMM across different numbers of clusters and outputs:
 ```bash
 python visualizations.py
 ```
-This provides various visualizations of our regime analysis, such as:
+This provides various visualizations of our regime analysis (saved to /gmm_plots), such as:
 - Regime evolution over time
 - Mean returns and volatility per factor over each regime
 - Model selection metrics
