@@ -2,7 +2,7 @@
 
 This project implements a data-driven approach to detecting financial market regimes by combining **Principal Component Analysis (PCA)** for dimensionality reduction with a **Gaussian Mixture Model (GMM)** for unsupervised clustering.  
 
-The goal is to identify persistent market conditions (regimes) using historical financial and macroeconomic factors, inspired by approaches such as Two Sigma’s factor lens research.
+The goal is to identify persistent market conditions (regimes) using historical financial and macroeconomic factors, inspired by approaches such as Two Sigma's factor lens research.
 
 ---
 
@@ -38,19 +38,19 @@ This project uses:
 ### Principal Component Analysis (PCA)
 - PCA is a linear transformation that projects high-dimensional data into orthogonal components ranked by variance explained.  
 - Mathematically:  
-  - Given a dataset \( X \) with covariance matrix \( \Sigma \), solve the eigenvalue problem:  
-    \[
-    \Sigma v_i = \lambda_i v_i
-    \]
-  - Principal components are eigenvectors \( v_i \) ordered by descending eigenvalues \( \lambda_i \).  
+  - Given a dataset **X** with covariance matrix **Σ**, solve the eigenvalue problem:  
+    
+    **Σv<sub>i</sub> = λ<sub>i</sub>v<sub>i</sub>**
+    
+  - Principal components are eigenvectors **v<sub>i</sub>** ordered by descending eigenvalues **λ<sub>i</sub>**.  
 - In this project, PCA reduces groups of factors (e.g., Equity, Credit, Commodities) into representative components.
 
 ### Gaussian Mixture Models (GMM)
-- GMM assumes data is generated from a mixture of \( K \) Gaussian distributions:
-  \[
-  p(x) = \sum_{k=1}^K \pi_k \mathcal{N}(x \mid \mu_k, \Sigma_k)
-  \]
-  where \( \pi_k \) are mixture weights, \( \mu_k \) are means, and \( \Sigma_k \) are covariance matrices.  
+- GMM assumes data is generated from a mixture of **K** Gaussian distributions:
+
+  **p(x) = Σ<sub>k=1</sub><sup>K</sup> π<sub>k</sub> 𝒩(x | μ<sub>k</sub>, Σ<sub>k</sub>)**
+  
+  where **π<sub>k</sub>** are mixture weights, **μ<sub>k</sub>** are means, and **Σ<sub>k</sub>** are covariance matrices.  
 - Parameters are estimated via the **Expectation-Maximization (EM)** algorithm.
 - Unlike K-means, GMM allows:
   - Soft cluster assignments (probabilistic regimes)
@@ -63,7 +63,7 @@ This project uses:
 ├── compute_returns.py   # Computes returns from raw factor data
 ├── gmm.py               # Runs PCA + GMM clustering and regime detection
 ├── factors.csv          # Factor metadata (categories, proxies, names, data sources)
-├── README.md            # Project documentation
+└── README.md            # Project documentation
 ```
 
 ---
