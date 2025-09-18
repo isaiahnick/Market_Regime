@@ -1,0 +1,13 @@
+# Core scientific stack
+pandas>=2.0
+numpy>=1.24
+scikit-learn>=1.4
+matplotlib>=3.7
+
+# Data access
+fredapi>=0.5
+requests>=2.31
+
+# Utils (optional but helpful)
+python-dotenv>=1.0
+tqdm>=4.66

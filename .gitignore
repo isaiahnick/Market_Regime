@@ -1,0 +1,29 @@
+# Byte-compiled / cache
+__pycache__/
+*.py[cod]
+*.so
+*.pyd
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# OS files
+.DS_Store
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Plots / outputs (keep source images in gmm_plots/ but ignore big renders if needed)
+results/
+*.svg
+
+# Secrets
+.env
+*.key
+*.pem
+
+# Editor settings
+.vscode/
+.idea/
