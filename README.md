@@ -60,10 +60,21 @@ This project uses:
 
 ## Repository Structure
 ```
-├── compute_returns.py   # Computes returns from raw factor data
-├── gmm.py               # Runs PCA + GMM clustering and regime detection
-├── factors.csv          # Factor metadata (categories, proxies, names, data sources)
-└── README.md            # Project documentation
+├── data/                     # Raw data storage folder
+├── gmm_plots/               # Output plots and visualizations
+├── .gitignore              # Git ignore file
+├── compute_returns.py      # Computes returns from raw factor data
+├── factor_lens.db          # SQLite database for factor data
+├── factors.csv             # Factor metadata (categories, proxies, names, data sources)
+├── gmm.py                  # Runs GMM clustering and regime detection
+├── init_db.py              # Initializes the SQLite database
+├── load_bloomberg.py       # Loads Bloomberg data into database
+├── load_fred.py            # Loads FRED economic data into database
+├── load_french.py          # Loads French factor data into database
+├── pca.py                  # Performs PCA analysis on factor groups
+├── README.md               # Project documentation
+├── requirements.txt        # Python dependencies
+└── seed_instruments.py     # Seeds instrument metadata into database
 ```
 
 ---
@@ -81,34 +92,64 @@ cd market-regime-detection
 pip install -r requirements.txt
 ```
 
-### FRED API Key
+### FRED API Key Setup
 1. Go to [FRED](https://fred.stlouisfed.org/) and create a free account.
 2. Generate an API key under **My Account > API Keys**.
 3. Export it in your shell (or add to `.bashrc`/`.zshrc`):
    ```bash
    export FRED_API_KEY="your_api_key_here"
    ```
-4. The scripts will automatically use this key when downloading factor data.
 
 ---
 
 ## Usage
 
-### Step 1: Compute Returns
+Follow these steps in order to set up and run the analysis:
+
+### Step 1: Prepare Raw Data
+- Place your raw financial data files in the `data/` folder
+- Ensure data is in CSV format with appropriate date and value columns
+
+### Step 2: Initialize Database
+```bash
+python init_db.py
+```
+This creates the SQLite database structure for storing factor data.
+
+### Step 3: Seed Instrument Metadata
+```bash
+python seed_instruments.py
+```
+This populates the database with instrument definitions and metadata.
+
+### Step 4: Load Factor Data
+Load data from various sources into the database:
+```bash
+python load_bloomberg.py    # Load Bloomberg market data
+python load_fred.py         # Load FRED economic indicators  
+python load_french.py       # Load French factor library data
+```
+
+### Step 5: Compute Returns
 ```bash
 python compute_returns.py
 ```
+This calculates returns and transformations for all factors in the database.
 
-### Step 2: Run PCA + GMM
+### Step 6: Principal Component Analysis
 ```bash
 python pca.py
+```
+This applies PCA to factor groups to reduce dimensionality.
+
+### Step 7: Gaussian Mixture Model Analysis
+```bash
 python gmm.py
 ```
-
-- The script will:
-  - Apply PCA to factor groups
-  - Fit GMM across candidate numbers of clusters
-  - Output regime probabilities and diagnostic metrics (AIC, BIC, Silhouette)
+This fits GMM across different numbers of clusters and outputs:
+- Regime probabilities and assignments
+- Model selection metrics (AIC, BIC, Silhouette)
+- Visualization plots in the `gmm_plots/` folder
 
 ---
 
