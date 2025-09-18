@@ -151,7 +151,6 @@ python gmm.py
 This fits GMM across different numbers of clusters and outputs:
 - Regime probabilities and assignments
 - Model selection metrics (AIC, BIC, Silhouette)
-- Visualization plots in the `gmm_plots/` folder
 
 ### Step 8: Generate Visualizations
 ```bash
@@ -173,7 +172,6 @@ This provides various visualizations of our regime analysis, such as:
 
 ## References
 - Two Sigma (2021). *A Machine Learning Approach to Regime Modeling*  
-- Bishop, C. M. (2006). *Pattern Recognition and Machine Learning*. Springer.  
 - scikit-learn documentation: [PCA](https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.PCA.html), [GaussianMixture](https://scikit-learn.org/stable/modules/generated/sklearn.mixture.GaussianMixture.html)
 
 ---
