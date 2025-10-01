@@ -46,7 +46,7 @@ def save_to_db(instrument_id, series):
 def main():
     """Load all FRED data"""
     # Check for API key
-    api_key = os.getenv("FRED_API_KEY")
+    api_key = '3208e5d6a5cff74ab3954a73f1f12e5b'
     if not api_key:
         print("Error: FRED_API_KEY environment variable not set")
         return
