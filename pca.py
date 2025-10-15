@@ -1,18 +1,3 @@
-# pca.py
-# Compute a single PCA proxy (PC1) per category and store outputs to SQLite.
-# Additionally:
-#   * Run a GLOBAL PCA on the integrated z-scored table (factors_monthly_z)
-#     and save ONE scree plot + ONE loadings heatmap for the whole table.
-#   * (Optional) per-category scree/loadings plots can be toggled on if desired.
-#
-# INPUT  : SQLite table factors_monthly_z (wide, z-scored), CSV factors.csv (category, proxy)
-# OUTPUT : pca_factors (long), pca_factors_wide (wide), pca_meta (stats), pca_loadings (PC1 loadings)
-# FILES  : ./plots_pca/scree_GLOBAL.png, ./plots_pca/heatmap_GLOBAL.png
-#          (per-category plots only if toggled on)
-#
-# Usage:
-#   python pca.py
-
 import os
 import sqlite3
 import pandas as pd
