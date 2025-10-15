@@ -15,7 +15,6 @@ from matplotlib.colors import LinearSegmentedColormap
 from matplotlib.patches import Rectangle
 from sklearn.decomposition import PCA
 
-
 # ----------------------------- Config ----------------------------------------
 
 DB_PATH = "./factor_lens.db"            # <- change if needed
