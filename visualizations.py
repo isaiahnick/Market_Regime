@@ -18,7 +18,9 @@ from datetime import datetime
 import os
 from dataclasses import dataclass
 
-DB_PATH = "/Users/isaiahnick/Desktop/Market Regime PCA/factor_lens.db"
+# DB_PATH = "/Users/isaiahnick/Desktop/Market Regime PCA/factor_lens.db"
+DB_PATH = "./factor_lens.db"
+
 
 @dataclass
 class GMMDiagnostics:

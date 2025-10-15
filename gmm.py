@@ -17,7 +17,8 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import silhouette_score
 from sklearn.impute import SimpleImputer
 
-DB_PATH = "/Users/isaiahnick/Desktop/Market Regime PCA/factor_lens.db"
+# DB_PATH = "/Users/isaiahnick/Desktop/Market Regime PCA/factor_lens.db"
+DB_PATH = "./factor_lens.db"
 
 def load_pca_wide():
     con = sqlite3.connect(DB_PATH)
