@@ -43,13 +43,13 @@ The approach is inspired by institutional quantitative research methods, particu
 
 ### Two Distinct Volatility Regimes Identified
 
-**Regime 0: Calm/Steady State (~65% of time)**
+**Regime 0: Calm/Steady State (~70% of time)**
 - Low volatility across all asset classes (std ~0.5-1.0)
 - Equity Short Volatility mean: -0.28 (suppressed vol)
 - Tight price ranges, predictable behavior
 - Examples: Mid-2000s, 2017-2018, parts of 2019 and 2023
 
-**Regime 1: Volatile/Crisis (~35% of time)**
+**Regime 1: Volatile/Crisis (~30% of time)**
 - High volatility across all factors (std ~1.4-1.8, **2-3x higher**)
 - Equity Short Volatility mean: +1.00 (elevated vol)
 - Negative equity returns (mean: -0.43)
@@ -252,7 +252,7 @@ The model has been rigorously validated to ensure regimes represent real market 
 - Indicates clear but overlapping clusters
 
 **2. Correlation Structure Analysis**
-- Average correlation difference across regimes: **0.154**
+- Average correlation difference across regimes: **0.173**
 - Threshold for "strong evidence": >0.15
 - Proves regimes have fundamentally different correlation structures
 - Not random noise or overfitting
@@ -313,9 +313,9 @@ All factor categories meet statistical requirements:
 
 ## Key Takeaways
 
-1. **Two volatility regimes exist in financial markets** - calm/steady periods (65%) and volatile/crisis periods (35%)
+1. **Two volatility regimes exist in financial markets** - calm/steady periods (70%) and volatile/crisis periods (30%)
 
-2. **Regimes are statistically validated** - correlation structure differs significantly (0.154 average difference), silhouette score of 0.192
+2. **Regimes are statistically validated** - correlation structure differs significantly (0.173 average difference), silhouette score of 0.192
 
 3. **Trend Following is the key regime indicator** - its correlation with risk assets flips sign across regimes
 
