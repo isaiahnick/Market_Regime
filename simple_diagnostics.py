@@ -37,7 +37,7 @@ def plot_top_pcs_over_time(pca_wide, regimes):
     
     fig, axes = plt.subplots(len(pc_cols), 1, figsize=(20, 3*len(pc_cols)))
     
-    colors = ['#FF6B6B', '#4ECDC4', '#45B7D1']
+    colors = ['#4ECDC4', '#FF6B6B']  # 0=Teal (Steady), 1=Red (Crisis)
     
     for idx, pc in enumerate(pc_cols):
         ax = axes[idx]
@@ -80,7 +80,7 @@ def plot_top_pcs_over_time(pca_wide, regimes):
                       linewidth=0, zorder=1)
         
         ax.set_ylabel(pc.replace('_PC1', ''), fontweight='bold', fontsize=12)
-        ax.set_title(f'{pc.replace("_PC1", "")} Over Time\n(Background: Red=Crisis, Teal=Bull, Blue=Transition)', 
+        ax.set_title(f'{pc.replace("_PC1", "")} Over Time\n(Background: Teal=Steady State, Red=Crisis)', 
                     fontweight='bold', fontsize=11)
         ax.grid(True, alpha=0.3)
         ax.set_xlim(gmm_start, pca_wide.index.max())
@@ -89,9 +89,8 @@ def plot_top_pcs_over_time(pca_wide, regimes):
         if idx == 0:
             from matplotlib.patches import Patch
             legend_elements = [
-                Patch(facecolor='#FF6B6B', alpha=0.25, label='Regime 0 (Crisis)'),
-                Patch(facecolor='#4ECDC4', alpha=0.25, label='Regime 1 (Bull)'),
-                Patch(facecolor='#45B7D1', alpha=0.25, label='Regime 2 (Transition)')
+                Patch(facecolor='#4ECDC4', alpha=0.25, label='Regime 0 (Steady State)'),
+                Patch(facecolor='#FF6B6B', alpha=0.25, label='Regime 1 (Crisis)')
             ]
             ax.legend(handles=legend_elements, loc='upper right', fontsize=9)
         
@@ -220,13 +219,14 @@ def plot_2d_view(pca_wide, regimes):
     
     fig, ax = plt.subplots(figsize=(12, 8))
     
-    colors = ['#FF6B6B', '#4ECDC4', '#45B7D1']
+    colors = ['#4ECDC4', '#FF6B6B']  # 0=Teal (Steady), 1=Red (Crisis)
     
     for regime in sorted(np.unique(y)):
         mask = y == regime
+        regime_label = 'Steady State' if regime == 0 else 'Crisis'
         ax.scatter(X_2d[mask, 0], X_2d[mask, 1],
                    alpha=0.5, s=30, color=colors[regime],
-                   label=f'Regime {regime} (n={mask.sum()})',
+                   label=f'Regime {regime} ({regime_label}, n={mask.sum()})',
                    edgecolors='black', linewidth=0.5)
     
     ax.set_xlabel(f'PC1 ({pca.explained_variance_ratio_[0]*100:.1f}% variance)')

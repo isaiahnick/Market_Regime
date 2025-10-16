@@ -43,13 +43,13 @@ The approach is inspired by institutional quantitative research methods, particu
 
 ### Two Distinct Volatility Regimes Identified
 
-**Regime 0: Calm/Goldilocks (~35% of time)**
+**Regime 0: Calm/Steady State (~65% of time)**
 - Low volatility across all asset classes (std ~0.5-1.0)
 - Equity Short Volatility mean: -0.28 (suppressed vol)
 - Tight price ranges, predictable behavior
 - Examples: Mid-2000s, 2017-2018, parts of 2019 and 2023
 
-**Regime 1: Volatile/Crisis (~65% of time)**
+**Regime 1: Volatile/Crisis (~35% of time)**
 - High volatility across all factors (std ~1.4-1.8, **2-3x higher**)
 - Equity Short Volatility mean: +1.00 (elevated vol)
 - Negative equity returns (mean: -0.43)
@@ -59,7 +59,7 @@ The approach is inspired by institutional quantitative research methods, particu
 ### Validation Metrics
 - **Silhouette Score: 0.192** (good for financial data)
 - **BIC selects K=2** (clear evidence for two regimes)
-- **Correlation difference: 0.154** (strong evidence regimes are real, not noise)
+- **Correlation difference: 0.173** (strong evidence regimes are real, not noise)
 - **Key regime driver: Trend Following** - correlation with risk assets flips from -0.47 (crisis) to +0.31 (bull)
 
 ### Economic Interpretation
@@ -296,6 +296,10 @@ All factor categories meet statistical requirements:
 ### Regime Probabilities
 ![Regime Probability Evolution](gmm_plots/regime_timeseries.png)
 *Probabilities of regimes over time.*
+
+### PC Behavior in Different Regimes
+![Regime Probability Evolution](gmm_plots/pcs_over_time.png)
+*How PC groups behave over the two regimes, highlighted by greater variance in Crisis states.*
 
 ### Correlation Validation
 ![Correlation by Regime](gmm_plots/correlation_by_regime.png)
