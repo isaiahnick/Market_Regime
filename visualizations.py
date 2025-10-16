@@ -917,7 +917,7 @@ def create_visualizations(regimes, diagnostics, X, dates, k_star, args):
 
 def main():
     ap = argparse.ArgumentParser(description="Generate visualizations for GMM results from database")
-    ap.add_argument('--start', type=str, default='2000-01-01', help='Start date (inclusive), e.g., 1970-01-01')
+    ap.add_argument('--start', type=str, default='1995-01-01', help='Start date (inclusive), e.g., 1970-01-01')
     ap.add_argument('--kmin', type=int, default=2)
     ap.add_argument('--kmax', type=int, default=6)
     ap.add_argument('--cov', type=str, default='full', choices=['full', 'tied', 'diag', 'spherical'])

@@ -53,57 +53,66 @@ def get_price_data():
 def calculate_returns(group, proxy, transformation_mapping):
     """Calculate appropriate returns/levels for each instrument based on CSV transformation"""
     daily_prices = group.set_index('date')['price'].dropna()
-    transformation = transformation_mapping.get(proxy, 'levels')  # Default to levels
+    
+    # Remove any NaT values from the index
+    daily_prices = daily_prices[daily_prices.index.notna()]
+    
+    if daily_prices.empty:
+        return pd.Series(dtype=float)
+    
+    transformation = transformation_mapping.get(proxy, 'levels')
+    
+    # Check if data is already monthly (median gap > 20 days)
+    if len(daily_prices) > 1:
+        date_gaps = daily_prices.index.to_series().diff()
+        median_gap = date_gaps.median()
+        is_monthly = median_gap > pd.Timedelta(days=20)
+    else:
+        is_monthly = False
     
     if transformation == 'log_returns':
-        # Price indices: 1-month log returns using month-end values
         monthly_prices = daily_prices.resample('ME').last()
         monthly_returns = np.log(monthly_prices / monthly_prices.shift(1))
         return monthly_returns
         
     elif transformation == 'levels':
-        # Use month-end levels (rates, volatility, already stationary series)
         monthly_levels = daily_prices.resample('ME').last()
         return monthly_levels
         
     elif transformation in ['factor_returns', 'use_directly']:
-        # French factors: already monthly returns, use as-is
-        # These are already factor returns (e.g., 0.05 for 5%), not prices
-        monthly_returns = daily_prices.resample('ME').last()
-        return monthly_returns
+        # French factors: already monthly, don't resample
+        if is_monthly:
+            return daily_prices
+        else:
+            # Shouldn't happen, but handle it
+            return daily_prices.resample('ME').last()
         
     elif transformation in ['first_differences', 'first differences']:
-        # First differences for interest rates and spreads
         monthly_levels = daily_prices.resample('ME').last()
         first_diff = monthly_levels.diff()
         return first_diff
         
     elif transformation in ['log_differences', 'log differences']:
-        # Log differences for inflation data
         monthly_levels = daily_prices.resample('ME').last()
         log_diff = np.log(monthly_levels).diff()
         return log_diff
         
     elif transformation == 'yoy_change':
-        # Inflation: year-over-year percentage change
         monthly_levels = daily_prices.resample('ME').last()
-        yoy_change = monthly_levels.pct_change(12) * 100  # 12-month % change
+        yoy_change = monthly_levels.pct_change(12) * 100
         return yoy_change
         
     elif transformation == 'mom_change':
-        # Month-over-month percentage change
         monthly_levels = daily_prices.resample('ME').last()
         mom_change = monthly_levels.pct_change(1) * 100
         return mom_change
         
     elif transformation == 'simple_returns':
-        # Simple returns instead of log returns
         monthly_prices = daily_prices.resample('ME').last()
         simple_returns = monthly_prices.pct_change(1)
         return simple_returns
         
     else:
-        # Default: month-end levels
         print(f"  Warning: Unknown transformation '{transformation}' for {proxy}, using levels")
         monthly_levels = daily_prices.resample('ME').last()
         return monthly_levels
