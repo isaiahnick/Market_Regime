@@ -293,12 +293,9 @@ All factor categories meet statistical requirements:
 ![Historical Regime Timeline](gmm_plots/exhibit_4_historical_timeline.png)
 *Complete historical view of regime assignments from 1995-2025.*
 
-![Recent Regime Timeline](gmm_plots/exhibit_5_recent_timeline.png)
-*Recent period (2020+) showing regime evolution during COVID and Fed tightening.*
-
 ### Regime Probabilities
-![Regime Probability Evolution](gmm_plots/exhibit_6_probabilities.png)
-*Stacked probabilities showing confidence in regime assignments over time.*
+![Regime Probability Evolution](gmm_plots/regime_timeseries.png)
+*Probabilities of regimes over time.*
 
 ### Correlation Validation
 ![Correlation by Regime](gmm_plots/correlation_by_regime.png)
