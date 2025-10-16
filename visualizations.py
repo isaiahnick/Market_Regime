@@ -113,8 +113,8 @@ def create_professional_regime_charts(regimes, k_star, dates, args):
     
     # Define professional color scheme matching your exhibits
     regime_colors = {
-        0: '#FF6B6B',  # Red/Pink - Crisis
-        1: '#4ECDC4',  # Teal/Cyan - Steady State  
+        0: '#4ECDC4',  # Teal/Cyan - Steady State
+        1: '#FF6B6B',  # Red/Pink - Crisis
         2: '#45B7D1',  # Blue - Another state
         3: '#96CEB4',  # Light Green - Another state
         4: '#FFEAA7',  # Yellow - WOI
@@ -122,8 +122,12 @@ def create_professional_regime_charts(regimes, k_star, dates, args):
     }
     
     # Create generic regime labels
-    regime_labels = {}
-    for i in range(k_star):
+    regime_labels = {
+        0: 'Regime 0 (Steady State)',
+        1: 'Regime 1 (Crisis)'
+    }
+    # Add generic labels for K>2 (shouldn't happen with your model)
+    for i in range(2, k_star):
         regime_labels[i] = f'Regime {i}'
     
     # Create output directory
@@ -704,16 +708,21 @@ def create_visualizations(regimes, diagnostics, X, dates, k_star, args):
     
     # 2. Regime Time Series
     fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(15, 10))
-    
+
     # Convert dates to datetime if they aren't already
     plot_dates = pd.to_datetime(dates)
-    
+
+    # Define colors for K=2 model
+    regime_colors_list = ['#4ECDC4', '#FF6B6B']  # 0=Teal, 1=Red
+    regime_names = ['Steady State', 'Crisis']
+
     # Regime assignments over time
-    colors = plt.cm.Set1(np.linspace(0, 1, k_star))
     for regime in range(k_star):
         mask = regimes['regime'] == regime
+        color = regime_colors_list[regime] if regime < len(regime_colors_list) else plt.cm.Set1(regime/k_star)
+        label = f'Regime {regime} ({regime_names[regime]})' if regime < len(regime_names) else f'Regime {regime}'
         ax1.scatter(plot_dates[mask], [regime] * sum(mask), 
-                   c=[colors[regime]], alpha=0.6, s=10, label=f'Regime {regime}')
+                c=color, alpha=0.6, s=10, label=label)
     
     ax1.set_ylabel('Regime')
     ax1.set_title(f'Market Regimes Over Time (K={k_star})')
@@ -724,9 +733,10 @@ def create_visualizations(regimes, diagnostics, X, dates, k_star, args):
     # Regime probabilities as stacked area
     prob_cols = [f'prob_{j}' for j in range(k_star)]
     prob_data = regimes[prob_cols].values.T
-    
-    ax2.stackplot(plot_dates, *prob_data, labels=[f'Regime {i}' for i in range(k_star)], 
-                  colors=colors, alpha=0.7)
+
+    ax2.stackplot(plot_dates, *prob_data, 
+                labels=[f'Regime {i} ({regime_names[i]})' if i < len(regime_names) else f'Regime {i}' for i in range(k_star)], 
+                colors=regime_colors_list[:k_star], alpha=0.7)
     ax2.set_xlabel('Date')
     ax2.set_ylabel('Probability')
     ax2.set_title('Regime Probabilities Over Time')
