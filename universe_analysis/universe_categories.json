@@ -1,0 +1,62 @@
+{
+  "Other": [
+    "BAMLC0A0CM",
+    "BAMLH0A0HYM2",
+    "BDIY_Index",
+    "BXM_Index",
+    "CPIAUCSL",
+    "CPILFESL",
+    "FEDFUNDS",
+    "FXCARRSP_Index",
+    "FXCTG10_Index",
+    "M1WOMVOL_Index",
+    "MXEA_Index",
+    "MXEF000G_Index",
+    "MXEF000V_Index",
+    "MXEFLC_Index",
+    "MXUS000G_Index",
+    "MXUS000V_Index",
+    "MXWD_Index",
+    "MXWO000G_Index",
+    "MXWO000V_Index",
+    "MXWOU_Index",
+    "PCEPI",
+    "SP5LVI_Index",
+    "SPXT_Index",
+    "SPX_RealizedVol",
+    "T10Y2Y",
+    "T10Y3M",
+    "TB3MS",
+    "TEDRATE",
+    "THREEFYTP10",
+    "USGGBE10_Index",
+    "VIX_Index"
+  ],
+  "Commodities": [
+    "BCOM_Index",
+    "SPGSCI_Index"
+  ],
+  "Fixed Income": [
+    "DGS10",
+    "DGS2",
+    "DGS30",
+    "DGS30_minus_DGS5"
+  ],
+  "Currencies": [
+    "DXY_Curncy",
+    "EURUSD_Curncy",
+    "USDJPY_Curncy"
+  ],
+  "Equity": [
+    "MXEF_Index",
+    "MXWO_Index",
+    "NKY_Index",
+    "SHCOMP_Index",
+    "SPX_Index",
+    "SXXP_Index"
+  ],
+  "Factors": [
+    "NEIXBTRND_Index",
+    "NEIXCTAT_Index"
+  ]
+}

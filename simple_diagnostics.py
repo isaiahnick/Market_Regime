@@ -33,7 +33,7 @@ def plot_top_pcs_over_time(pca_wide, regimes):
     gmm_start = pd.Timestamp('1995-01-01')
     pca_wide = pca_wide[pca_wide.index >= gmm_start]
     
-    pc_cols = [c for c in pca_wide.columns if 'PC' in c][:4]
+    pc_cols = [c for c in pca_wide.columns if 'PC' in c][:12]
     
     fig, axes = plt.subplots(len(pc_cols), 1, figsize=(20, 3*len(pc_cols)))
     
